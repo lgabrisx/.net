@@ -6,151 +6,95 @@
   <title>موقعي الشخصي</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Tahoma', sans-serif;
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* القائمة الجانبية (تظهر افتراضياً) */
-    .sidebar {
-      background-color: #32CD32; /* اللون الأخضر */
-      width: 250px;
-      height: 100%;
-      position: fixed;
-      left: 0; /* تظهر بشكل افتراضي */
-      top: 0;
-      padding-top: 50px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
-    }
-
-    .sidebar h2 {
-      color: white;
-      text-align: center;
-      margin-bottom: 30px;
-    }
-
-    .sidebar a {
-      display: block;
-      color: white;
-      text-decoration: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      transition: 0.3s;
-    }
-
-    .sidebar a:hover {
-      background-color: #228B22; /* أخضر أغمق */
-    }
-
-    /* الزر لإغلاق القائمة الجانبية */
-    .close-btn {
-      font-size: 30px;
-      color: white;
-      background-color: transparent;
-      border: none;
-      padding: 15px 20px;
-      cursor: pointer;
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 999;
-    }
-
-    /* محتوى الموقع */
-    .main-content {
-      margin-left: 0;
-      padding: 20px;
+      font-family: Tahoma, sans-serif;
       background-color: #f4f4f4;
-      transition: margin-left 0.3s;
+      color: #333;
+      text-align: center;
+      margin: 0;
+      padding: 0;
     }
 
     header {
-      background-color: #32CD32;
+      background-color: #009688;
       color: white;
       padding: 30px 0;
-      text-align: center;
     }
 
     section {
-      padding: 30px 0;
-      text-align: center;
+      padding: 40px 20px;
     }
 
     footer {
       background-color: #222;
       color: white;
       padding: 20px 0;
-      text-align: center;
     }
 
-    /* الوضع الجانبي عند إغلاقه */
-    .sidebar.closed {
-      left: -250px; /* إخفاء القائمة عند الضغط على الزر */
+    /* إضافة أنماط للتفاعل */
+    .hidden {
+      display: none;
     }
 
-    /* تأثير على محتوى الصفحة عند إغلاق القائمة الجانبية */
-    .main-content.shifted {
-      margin-left: 0;
+    /* تأثرات الرسوم المتحركة عند التفاعل */
+    .show {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out;
     }
 
-    /* استجابة للهواتف */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 200px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
       }
-
-      .main-content {
-        margin-left: 0;
+      to {
+        opacity: 1;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- القائمة الجانبية التي تظهر بشكل افتراضي -->
-  <div class="sidebar">
-    <h2>روابطي</h2>
-    <a href="https://instagram.com/lgabrisz" target="_blank">انستغرام</a>
-  </div>
+  <header>
+    <h1>مرحباً بكم في موقعي</h1>
+    <p>أنا ياسين، وهذه صفحتي الشخصية</p>
+    <button onclick="toggleInfo()">اعرف المزيد عني</button>
+  </header>
 
-  <!-- زر لإغلاق القائمة الجانبية -->
-  <button class="close-btn" onclick="toggleSidebar()">×</button>
+  <section id="aboutSection" class="hidden">
+    <h2>من أنا؟</h2>
+    <p>أنا مهتم بتطوير الويب والفلسفة الرواقية. أحب مشاركة المعرفة وبناء مشاريع مفيدة.</p>
+  </section>
 
-  <!-- محتوى الموقع -->
-  <div class="main-content">
-    <header>
-      <h1>مرحباً بكم في موقعي</h1>
-      <p>أنا ياسين، وهذه صفحتي الشخصية</p>
-    </header>
+  <section id="contactSection" class="hidden">
+    <h2>تواصل معي</h2>
+    <p>البريد الإلكتروني: example@email.com</p>
+  </section>
 
-    <section>
-      <h2>من أنا؟</h2>
-      <p>أنا مهتم بتطوير الويب والفلسفة الرواقية. أحب مشاركة المعرفة وبناء مشاريع مفيدة.</p>
-    </section>
-
-    <section>
-      <h2>تواصل معي</h2>
-      <p>البريد الإلكتروني: example@email.com</p>
-    </section>
-
-    <footer>
-      <p>© 2025 جميع الحقوق محفوظة</p>
-    </footer>
-  </div>
+  <footer>
+    <p>© 2025 جميع الحقوق محفوظة</p>
+  </footer>
 
   <script>
-    // دالة لفتح وغلق القائمة الجانبية
-    function toggleSidebar() {
-      const sidebar = document.querySelector('.sidebar');
-      const mainContent = document.querySelector('.main-content');
+    // دالة لإظهار و إخفاء الأقسام باستخدام JavaScript
+    function toggleInfo() {
+      var aboutSection = document.getElementById('aboutSection');
+      var contactSection = document.getElementById('contactSection');
 
-      // إضافة/إزالة الكلاس 'closed' للقائمة الجانبية
-      sidebar.classList.toggle('closed');  
+      // التبديل بين إظهار و إخفاء المعلومات
+      if (aboutSection.classList.contains('hidden')) {
+        aboutSection.classList.remove('hidden');
+        aboutSection.classList.add('show');
+      } else {
+        aboutSection.classList.remove('show');
+        aboutSection.classList.add('hidden');
+      }
 
-      // تغيير الـmargin للمحتوى عند غلق القائمة
-      mainContent.classList.toggle('shifted'); 
+      if (contactSection.classList.contains('hidden')) {
+        contactSection.classList.remove('hidden');
+        contactSection.classList.add('show');
+      } else {
+        contactSection.classList.remove('show');
+        contactSection.classList.add('hidden');
+      }
     }
   </script>
 

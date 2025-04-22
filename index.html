@@ -34,39 +34,23 @@
       margin-top: 20px;
     }
 
-    /* تصميم الزر المدور */
+    /* تصميم الزر المستطيل مع حواف دائرية */
     .insta-button {
       background-color: #009688;
       color: white;
       border: none;
-      border-radius: 50%;
-      padding: 20px 40px;
+      padding: 12px 30px;
       font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
       margin-top: 20px;
+      text-transform: uppercase;
       transition: background-color 0.3s ease;
+      border-radius: 8px; /* حواف دائرية */
     }
 
     .insta-button:hover {
       background-color: #00796b;
-    }
-
-    /* تصميم الصورة التي ستظهر عند مغادرة الصفحة */
-    .exit-image {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      text-align: center;
-      padding-top: 20%;
-    }
-
-    .exit-image img {
-      max-width: 80%;
-      border-radius: 10px;
     }
   </style>
 </head>
@@ -87,30 +71,12 @@
     <p>البريد الإلكتروني: example@email.com</p>
   </section>
 
-  <!-- زر انستغرام -->
+  <!-- زر انستغرام مع حواف دائرية -->
   <section>
     <a href="https://www.instagram.com/lgabrisz" target="_blank">
       <button class="insta-button">Instagram</button>
     </a>
   </section>
-
-  <!-- الصورة التي ستظهر عند محاولة مغادرة الصفحة -->
-  <div class="exit-image" id="exitImage">
-    <img src="https://cdn.discordapp.com/attachments/1260073746668978268/1359707034190352606/C32AB341-A341-4C82-A33C-91BF88C8B14B.jpg?ex=6808f01b&is=68079e9b&hm=389f74bc742340d3e56dc06e5200dc1ae7989bf8db1776d9c6988c7354f76b1d&" alt="صورة من ديسكورد">
-  </div>
-
-  <script>
-    // عندما يحاول المستخدم مغادرة الصفحة
-    window.addEventListener('beforeunload', function() {
-      // إظهار الصورة عند محاولة المغادرة
-      document.getElementById('exitImage').style.display = 'block';
-    });
-
-    // لتجنب أن تظل الصورة ظاهرة إذا عاد المستخدم إلى الصفحة
-    window.addEventListener('unload', function() {
-      document.getElementById('exitImage').style.display = 'none';
-    });
-  </script>
 
 </body>
 </html>

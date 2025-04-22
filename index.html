@@ -29,26 +29,6 @@
       color: white;
       padding: 20px 0;
     }
-
-    /* إضافة أنماط للتفاعل */
-    .hidden {
-      display: none;
-    }
-
-    /* تأثرات الرسوم المتحركة عند التفاعل */
-    .show {
-      display: block;
-      animation: fadeIn 0.5s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
@@ -56,15 +36,14 @@
   <header>
     <h1>مرحباً بكم في موقعي</h1>
     <p>أنا ياسين، وهذه صفحتي الشخصية</p>
-    <button onclick="toggleInfo()">اعرف المزيد عني</button>
   </header>
 
-  <section id="aboutSection" class="hidden">
+  <section>
     <h2>من أنا؟</h2>
     <p>أنا مهتم بتطوير الويب والفلسفة الرواقية. أحب مشاركة المعرفة وبناء مشاريع مفيدة.</p>
   </section>
 
-  <section id="contactSection" class="hidden">
+  <section>
     <h2>تواصل معي</h2>
     <p>البريد الإلكتروني: example@email.com</p>
   </section>
@@ -72,31 +51,6 @@
   <footer>
     <p>© 2025 جميع الحقوق محفوظة</p>
   </footer>
-
-  <script>
-    // دالة لإظهار و إخفاء الأقسام باستخدام JavaScript
-    function toggleInfo() {
-      var aboutSection = document.getElementById('aboutSection');
-      var contactSection = document.getElementById('contactSection');
-
-      // التبديل بين إظهار و إخفاء المعلومات
-      if (aboutSection.classList.contains('hidden')) {
-        aboutSection.classList.remove('hidden');
-        aboutSection.classList.add('show');
-      } else {
-        aboutSection.classList.remove('show');
-        aboutSection.classList.add('hidden');
-      }
-
-      if (contactSection.classList.contains('hidden')) {
-        contactSection.classList.remove('hidden');
-        contactSection.classList.add('show');
-      } else {
-        contactSection.classList.remove('show');
-        contactSection.classList.add('hidden');
-      }
-    }
-  </script>
 
 </body>
 </html>

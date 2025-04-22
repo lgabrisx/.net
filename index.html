@@ -25,35 +25,13 @@
     }
 
     footer {
-      display: none; /* تم إخفاء هذا الجزء */
+      display: none;
     }
 
     img {
       max-width: 100%;
       height: auto;
       margin-top: 20px;
-    }
-
-    /* تصميم الزر الأزرق في الأعلى */
-    .about-me-button {
-      background-color: #007bff; /* اللون الأزرق */
-      color: white;
-      border: 2px solid #007bff; /* حواف الزر */
-      padding: 12px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-      margin-top: 20px;
-      border-radius: 0; /* حواف مربعة */
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .about-me-button:hover {
-      background-color: #0056b3; /* التغيير عند التمرير */
-      border-color: #0056b3;
     }
 
     /* تصميم الزر المستطيل مع حواف دائرية */
@@ -68,20 +46,33 @@
       margin-top: 20px;
       text-transform: uppercase;
       transition: background-color 0.3s ease;
-      border-radius: 8px; /* حواف دائرية */
+      border-radius: 8px;
     }
 
     .insta-button:hover {
       background-color: #00796b;
     }
+
+    /* تصميم الزر "عنّي" */
+    .about-button {
+      background-color: #3b82f6; /* اللون الأزرق */
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      text-transform: uppercase;
+      border-radius: 8px;
+    }
+
+    .about-button:hover {
+      background-color: #2563eb; /* ظل أزرق */
+    }
   </style>
 </head>
 <body>
-
-  <!-- زر "About Me" في الأعلى -->
-  <section>
-    <a href="about.html" class="about-me-button">About Me</a>
-  </section>
 
   <header>
     <h1>مرحباً بكم في موقعي</h1>
@@ -102,6 +93,13 @@
   <section>
     <a href="https://www.instagram.com/lgabrisz" target="_blank">
       <button class="insta-button">Instagram</button>
+    </a>
+  </section>
+
+  <!-- زر التنقل إلى صفحة "about.html" -->
+  <section>
+    <a href="about.html">
+      <button class="about-button">About Me</button>
     </a>
   </section>
 

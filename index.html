@@ -9,17 +9,19 @@
       margin: 0;
       font-family: 'Tahoma', sans-serif;
       display: flex;
+      flex-direction: column;
     }
 
     /* القائمة الجانبية */
     .sidebar {
       background-color: #6a0dad; /* بنفسجي غامق */
       width: 250px;
-      height: 100vh;
+      height: 100%;
       position: fixed;
-      left: 0;
+      left: -250px;
       top: 0;
       padding-top: 50px;
+      transition: 0.3s;
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -42,12 +44,26 @@
       background-color: #4b0082; /* بنفسجي أغمق */
     }
 
+    /* الزر لفتح القائمة الجانبية */
+    .open-btn {
+      font-size: 30px;
+      color: #6a0dad;
+      background-color: #fff;
+      border: none;
+      padding: 15px 20px;
+      cursor: pointer;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
     /* محتوى الموقع */
     .main-content {
-      margin-left: 250px;
+      margin-left: 0;
       padding: 20px;
       background-color: #f4f4f4;
-      flex-grow: 1;
+      transition: margin-left 0.3s;
     }
 
     header {
@@ -68,15 +84,41 @@
       padding: 20px 0;
       text-align: center;
     }
+
+    /* الوضع الجانبي عند الضغط على الزر */
+    .sidebar.active {
+      left: 0;
+    }
+
+    /* تأثير على محتوى الصفحة عند فتح القائمة الجانبية */
+    .main-content.active {
+      margin-left: 250px;
+    }
+
+    /* استجابة للهواتف */
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 200px;
+      }
+
+      .main-content {
+        margin-left: 0;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- زر فتح القائمة الجانبية -->
+  <button class="open-btn" onclick="toggleSidebar()">☰</button>
+
+  <!-- القائمة الجانبية -->
   <div class="sidebar">
     <h2>روابطي</h2>
     <a href="https://instagram.com/lgabrisz" target="_blank">انستغرام</a>
   </div>
 
+  <!-- محتوى الموقع -->
   <div class="main-content">
     <header>
       <h1>مرحباً بكم في موقعي</h1>
@@ -97,6 +139,16 @@
       <p>© 2025 جميع الحقوق محفوظة</p>
     </footer>
   </div>
+
+  <script>
+    // دالة لفتح وغلق القائمة الجانبية
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const mainContent = document.querySelector('.main-content');
+      sidebar.classList.toggle('active');
+      mainContent.classList.toggle('active');
+    }
+  </script>
 
 </body>
 </html>

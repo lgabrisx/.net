@@ -6,51 +6,97 @@
   <title>موقعي الشخصي</title>
   <style>
     body {
-      font-family: Tahoma, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      text-align: center;
       margin: 0;
-      padding: 0;
+      font-family: 'Tahoma', sans-serif;
+      display: flex;
+    }
+
+    /* القائمة الجانبية */
+    .sidebar {
+      background-color: #6a0dad; /* بنفسجي غامق */
+      width: 250px;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      padding-top: 50px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar h2 {
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #4b0082; /* بنفسجي أغمق */
+    }
+
+    /* محتوى الموقع */
+    .main-content {
+      margin-left: 250px;
+      padding: 20px;
+      background-color: #f4f4f4;
+      flex-grow: 1;
     }
 
     header {
-      background-color: #009688;
+      background-color: #6a0dad;
       color: white;
       padding: 30px 0;
+      text-align: center;
     }
 
     section {
-      padding: 40px 20px;
+      padding: 30px 0;
+      text-align: center;
     }
 
     footer {
       background-color: #222;
       color: white;
       padding: 20px 0;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>مرحباً بكم في موقعي</h1>
-    <p>أنا ياسين، وهذه صفحتي الشخصية</p>
-  </header>
+  <div class="sidebar">
+    <h2>روابطي</h2>
+    <a href="https://instagram.com/lgabrisz" target="_blank">انستغرام</a>
+  </div>
 
-  <section>
-    <h2>من أنا؟</h2>
-    <p>أنا مهتم بتطوير الويب . أحب مشاركة المعرفة وبناء مشاريع مفيدة.</p>
-  </section>
+  <div class="main-content">
+    <header>
+      <h1>مرحباً بكم في موقعي</h1>
+      <p>أنا ياسين، وهذه صفحتي الشخصية</p>
+    </header>
 
-  <section>
-    <h2>تواصل معي</h2>
-    <p>البريد الإلكتروني: igabrisx@email.com</p>
-  </section>
+    <section>
+      <h2>من أنا؟</h2>
+      <p>أنا مهتم بتطوير الويب والفلسفة الرواقية. أحب مشاركة المعرفة وبناء مشاريع مفيدة.</p>
+    </section>
 
-  <footer>
-    <p>© 2025 جميع الحقوق محفوظة</p>
-  </footer>
+    <section>
+      <h2>تواصل معي</h2>
+      <p>البريد الإلكتروني: example@email.com</p>
+    </section>
+
+    <footer>
+      <p>© 2025 جميع الحقوق محفوظة</p>
+    </footer>
+  </div>
 
 </body>
 </html>

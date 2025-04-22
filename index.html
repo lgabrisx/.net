@@ -12,17 +12,17 @@
       flex-direction: column;
     }
 
-    /* القائمة الجانبية */
+    /* القائمة الجانبية (تظهر افتراضياً) */
     .sidebar {
-      background-color: #6a0dad; /* بنفسجي غامق */
+      background-color: #32CD32; /* اللون الأخضر */
       width: 250px;
       height: 100%;
       position: fixed;
-      left: -250px;
+      left: 0; /* تظهر بشكل افتراضي */
       top: 0;
       padding-top: 50px;
-      transition: 0.3s;
       box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
     }
 
     .sidebar h2 {
@@ -41,14 +41,14 @@
     }
 
     .sidebar a:hover {
-      background-color: #4b0082; /* بنفسجي أغمق */
+      background-color: #228B22; /* أخضر أغمق */
     }
 
-    /* الزر لفتح القائمة الجانبية */
-    .open-btn {
+    /* الزر لإغلاق القائمة الجانبية */
+    .close-btn {
       font-size: 30px;
-      color: #6a0dad;
-      background-color: #fff;
+      color: white;
+      background-color: transparent;
       border: none;
       padding: 15px 20px;
       cursor: pointer;
@@ -67,7 +67,7 @@
     }
 
     header {
-      background-color: #6a0dad;
+      background-color: #32CD32;
       color: white;
       padding: 30px 0;
       text-align: center;
@@ -85,14 +85,14 @@
       text-align: center;
     }
 
-    /* الوضع الجانبي عند الضغط على الزر */
-    .sidebar.active {
-      left: 0;
+    /* الوضع الجانبي عند إغلاقه */
+    .sidebar.closed {
+      left: -250px; /* إخفاء القائمة عند الضغط على الزر */
     }
 
-    /* تأثير على محتوى الصفحة عند فتح القائمة الجانبية */
-    .main-content.active {
-      margin-left: 250px;
+    /* تأثير على محتوى الصفحة عند إغلاق القائمة الجانبية */
+    .main-content.shifted {
+      margin-left: 0;
     }
 
     /* استجابة للهواتف */
@@ -109,14 +109,14 @@
 </head>
 <body>
 
-  <!-- زر فتح القائمة الجانبية -->
-  <button class="open-btn" onclick="toggleSidebar()">☰</button>
-
-  <!-- القائمة الجانبية -->
+  <!-- القائمة الجانبية التي تظهر بشكل افتراضي -->
   <div class="sidebar">
     <h2>روابطي</h2>
     <a href="https://instagram.com/lgabrisz" target="_blank">انستغرام</a>
   </div>
+
+  <!-- زر لإغلاق القائمة الجانبية -->
+  <button class="close-btn" onclick="toggleSidebar()">×</button>
 
   <!-- محتوى الموقع -->
   <div class="main-content">
@@ -145,8 +145,12 @@
     function toggleSidebar() {
       const sidebar = document.querySelector('.sidebar');
       const mainContent = document.querySelector('.main-content');
-      sidebar.classList.toggle('active');
-      mainContent.classList.toggle('active');
+
+      // إضافة/إزالة الكلاس 'closed' للقائمة الجانبية
+      sidebar.classList.toggle('closed');  
+
+      // تغيير الـmargin للمحتوى عند غلق القائمة
+      mainContent.classList.toggle('shifted'); 
     }
   </script>
 

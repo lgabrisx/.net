@@ -27,6 +27,29 @@
     footer {
       display: none; /* تم إخفاء هذا الجزء */
     }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+
+    /* تصميم الزر المدور */
+    .insta-button {
+      background-color: #009688;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      padding: 20px 40px;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    .insta-button:hover {
+      background-color: #00796b;
+    }
   </style>
 </head>
 <body>
@@ -36,6 +59,11 @@
     <p>أنا ياسين، وهذه صفحتي الشخصية</p>
   </header>
 
+  <!-- إضافة صورة من ديسكورد -->
+  <section>
+    <img src="https://cdn.discordapp.com/attachments/1260073746668978268/1359707034190352606/C32AB341-A341-4C82-A33C-91BF88C8B14B.jpg?ex=6808f01b&is=68079e9b&hm=389f74bc742340d3e56dc06e5200dc1ae7989bf8db1776d9c6988c7354f76b1d&" alt="صورة من ديسكورد">
+  </section>
+
   <section>
     <h2>من أنا؟</h2>
     <p>أنا مهتم بتطوير الويب والفلسفة الرواقية. أحب مشاركة المعرفة وبناء مشاريع مفيدة.</p>
@@ -44,6 +72,13 @@
   <section>
     <h2>تواصل معي</h2>
     <p>البريد الإلكتروني: example@email.com</p>
+  </section>
+
+  <!-- زر انستغرام -->
+  <section>
+    <a href="https://www.instagram.com/lgabrisz" target="_blank">
+      <button class="insta-button">Instagram</button>
+    </a>
   </section>
 
 </body>

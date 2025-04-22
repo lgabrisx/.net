@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> lgabris dev</title>
+  <title>lgabris dev</title>
   <style>
     body {
       font-family: Tahoma, sans-serif;
@@ -50,6 +50,24 @@
     .insta-button:hover {
       background-color: #00796b;
     }
+
+    /* تصميم الصورة التي ستظهر عند مغادرة الصفحة */
+    .exit-image {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      text-align: center;
+      padding-top: 20%;
+    }
+
+    .exit-image img {
+      max-width: 80%;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
@@ -75,6 +93,24 @@
       <button class="insta-button">Instagram</button>
     </a>
   </section>
+
+  <!-- الصورة التي ستظهر عند محاولة مغادرة الصفحة -->
+  <div class="exit-image" id="exitImage">
+    <img src="https://cdn.discordapp.com/attachments/1260073746668978268/1359707034190352606/C32AB341-A341-4C82-A33C-91BF88C8B14B.jpg?ex=6808f01b&is=68079e9b&hm=389f74bc742340d3e56dc06e5200dc1ae7989bf8db1776d9c6988c7354f76b1d&" alt="صورة من ديسكورد">
+  </div>
+
+  <script>
+    // عندما يحاول المستخدم مغادرة الصفحة
+    window.addEventListener('beforeunload', function() {
+      // إظهار الصورة عند محاولة المغادرة
+      document.getElementById('exitImage').style.display = 'block';
+    });
+
+    // لتجنب أن تظل الصورة ظاهرة إذا عاد المستخدم إلى الصفحة
+    window.addEventListener('unload', function() {
+      document.getElementById('exitImage').style.display = 'none';
+    });
+  </script>
 
 </body>
 </html>
